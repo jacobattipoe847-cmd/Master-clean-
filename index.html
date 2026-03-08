@@ -6,73 +6,54 @@
 <title>Master Clean Cleaning Services</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-    body { background: #f0f4f8; color: #333; scroll-behavior: smooth; }
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+body { background:#f0f4f8; color:#333; scroll-behavior:smooth; }
 
-    /* Header */
-    header {
-        background: url('https://images.unsplash.com/photo-1581574207115-3f0b4f8c3d6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2xlYW5lcjJ8fHx8fHwxNjg3Mjg0MjE3&ixlib=rb-4.0.3&q=80&w=1080') center/cover no-repeat;
-        color: white; padding: 120px 20px; text-align: center; position: relative;
-    }
-    header::before {
-        content: "";
-        position: absolute; top:0; left:0; width:100%; height:100%;
-        background: rgba(0,0,0,0.5); z-index:0;
-    }
-    header h1, header p { position: relative; z-index:1; }
-    header h1 { font-size: 3em; margin-bottom: 15px; animation: fadeIn 1s ease-out; }
-    header p { font-size: 1.3em; animation: fadeIn 1.5s ease-out; }
+/* Header */
+header {
+    background: linear-gradient(135deg, #2196F3, #21CBF3);
+    color:white; padding:120px 20px; text-align:center; border-bottom:5px solid #fff;
+}
+header h1 { font-size:3em; margin-bottom:15px; }
+header p { font-size:1.3em; }
 
-    /* Navigation */
-    nav { display:flex; justify-content:center; gap:20px; margin:15px 0; flex-wrap:wrap; }
-    nav a {
-        text-decoration:none; color:#333; padding:10px 20px; border-radius:5px;
-        transition: all 0.3s ease; background: white; box-shadow:0 2px 5px rgba(0,0,0,0.1);
-        font-weight:600;
-    }
-    nav a:hover { background: #ff7f50; color:white; transform:scale(1.05); }
+/* Navigation */
+nav { display:flex; justify-content:center; gap:20px; margin:15px 0; flex-wrap:wrap; }
+nav a {
+    text-decoration:none; color:white; padding:10px 20px; border-radius:5px;
+    transition: all 0.3s ease; background:#0d47a1; font-weight:600;
+}
+nav a:hover { background:#42a5f5; transform:scale(1.05); }
 
-    /* Services Section */
-    section { padding:60px 20px; max-width:1200px; margin:auto; }
-    section h2 { text-align:center; font-size:2.2em; margin-bottom:40px; color:#333; }
-    .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; }
+/* Sections */
+section { padding:60px 20px; max-width:1200px; margin:auto; display:none; border-radius:10px; }
 
-    .service-card {
-        background: linear-gradient(145deg, #ffffff, #e0f7fa);
-        padding:25px; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.1);
-        cursor:pointer; transition: all 0.3s ease; position: relative;
-    }
-    .service-card.active { background: linear-gradient(145deg, #ffecb3, #ffcc80); }
-    .service-card h3 { margin-bottom:10px; color:#4CAF50; transition: color 0.3s ease; }
-    .service-card p { display:none; font-size:0.95em; line-height:1.5; margin-top:10px; }
-    
-    /* Option 2 / Booking */
-    #option2 { background: linear-gradient(135deg,#4CAF50,#66bb6a); color:white; text-align:center;
-        padding:60px 20px; border-radius:10px; margin:40px auto; max-width:900px;
-    }
-    #option2 h2 { margin-bottom:20px; }
-    #option2 form { display:flex; flex-direction:column; gap:15px; max-width:500px; margin:auto; }
-    #option2 input, #option2 textarea { padding:12px; border-radius:5px; border:none; font-size:1em; }
-    #option2 button {
-        padding:12px; border:none; border-radius:5px; background:white; color:#4CAF50; font-weight:600;
-        cursor:pointer; transition: all 0.3s ease;
-    }
-    #option2 button:hover { background:#45a049; color:white; transform:scale(1.05); }
+section h2 { text-align:center; font-size:2.2em; margin-bottom:40px; color:#333; }
 
-    /* Contact Section */
-    #contact { text-align:center; padding:60px 20px; }
-    #contact a.btn { display:inline-block; margin-top:15px; background:#ff7f50; color:white;
-        padding:12px 25px; border-radius:5px; text-decoration:none; transition: all 0.3s ease;
-    }
-    #contact a.btn:hover { background:#ff5722; transform:scale(1.05); }
+/* Services Section */
+.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; }
+.service-card {
+    background:#ffffff; padding:25px; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    cursor:pointer; transition: all 0.3s ease;
+}
+.service-card.active { background:#ffcc80; }
+.service-card h3 { margin-bottom:10px; color:#2196F3; transition: color 0.3s ease; }
+.service-card p { display:none; font-size:0.95em; line-height:1.5; margin-top:10px; }
 
-    /* Footer */
-    footer { text-align:center; padding:20px; background:#333; color:white; }
+/* Booking Section */
+#option2 { background:#4CAF50; color:white; text-align:center; padding:60px 20px; border-radius:10px; }
+#option2 form { display:flex; flex-direction:column; gap:15px; max-width:500px; margin:auto; }
+#option2 input, #option2 textarea { padding:12px; border-radius:5px; border:none; font-size:1em; }
+#option2 button { padding:12px; border:none; border-radius:5px; background:white; color:#4CAF50; font-weight:600; cursor:pointer; transition:all 0.3s ease; }
+#option2 button:hover { background:#45a049; color:white; transform:scale(1.05); }
 
-    /* Animations */
-    @keyframes fadeIn { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
-    section, .service-card, #contact, #option2 { animation: fadeIn 1s ease forwards; opacity:0; }
+/* Contact Section */
+#contact { text-align:center; padding:60px 20px; }
+#contact a.btn { display:inline-block; margin-top:15px; background:#ff7f50; color:white; padding:12px 25px; border-radius:5px; text-decoration:none; transition: all 0.3s ease; }
+#contact a.btn:hover { background:#ff5722; transform:scale(1.05); }
 
+/* Footer */
+footer { text-align:center; padding:20px; background:#333; color:white; }
 </style>
 </head>
 <body>
@@ -83,37 +64,38 @@
 </header>
 
 <nav>
-    <a href="#services">Services</a>
-    <a href="#option2">Book Now</a>
-    <a href="#contact">Contact</a>
+    <a href="#services" id="showServices">Services</a>
+    <a href="#option2" id="showBook">Book Now</a>
+    <a href="#contact" id="showContact">Contact</a>
 </nav>
 
+<!-- Services Section -->
 <section id="services">
     <h2>Our Services</h2>
     <div class="services-grid">
         <div class="service-card">
             <h3>Residential Cleaning</h3>
-            <p>Comprehensive cleaning for homes of any size — every corner is spotless, safe, and hygienic.</p>
+            <p>Comprehensive cleaning for homes of any size — every corner spotless and hygienic.</p>
         </div>
         <div class="service-card">
             <h3>Office Cleaning</h3>
-            <p>Professional cleaning for offices and commercial spaces. Desks, floors, and windows handled with care.</p>
+            <p>Professional cleaning for offices and commercial spaces. Desks, floors, and windows handled carefully.</p>
         </div>
         <div class="service-card">
             <h3>Deep Cleaning</h3>
-            <p>Intensive cleaning for hard-to-reach areas and accumulated dirt. Perfect for seasonal or thorough cleaning.</p>
+            <p>Intensive cleaning for hard-to-reach areas and accumulated dirt. Perfect for seasonal cleaning.</p>
         </div>
         <div class="service-card">
             <h3>Move-In / Move-Out</h3>
-            <p>Clean every corner before moving in or after moving out, leaving the space fresh and sanitary.</p>
+            <p>Clean every corner before moving in or after moving out for a fresh, sanitary space.</p>
         </div>
         <div class="service-card">
             <h3>Event Cleanup / Green Events</h3>
-            <p>Post-event cleaning for parties, conferences, and green initiatives. Efficient waste disposal and restoration.</p>
+            <p>Post-event cleaning for parties, conferences, and green initiatives. Waste disposal done efficiently.</p>
         </div>
         <div class="service-card">
             <h3>Ready Labour</h3>
-            <p>Skilled cleaning personnel available on-demand for large jobs or short-term cleaning projects.</p>
+            <p>Skilled cleaning personnel available on-demand for large jobs or short-term projects.</p>
         </div>
         <div class="service-card">
             <h3>Waste Management & Scrap Removal</h3>
@@ -121,15 +103,16 @@
         </div>
         <div class="service-card">
             <h3>Property Care</h3>
-            <p>Comprehensive property maintenance including upkeep of common areas, sanitation, and minor repairs.</p>
+            <p>Property maintenance including common areas, sanitation, and minor repairs.</p>
         </div>
         <div class="service-card">
             <h3>Swimming Pool Cleaning</h3>
-            <p>Keep your pool clean, safe, and sparkling. Includes skimming, vacuuming, and chemical balancing.</p>
+            <p>Keep your pool clean, safe, and sparkling. Skimming, vacuuming, and chemical balancing included.</p>
         </div>
     </div>
 </section>
 
+<!-- Booking Section -->
 <section id="option2">
     <h2>Book a Service</h2>
     <form action="mailto:info@masterclean.com" method="post" enctype="text/plain">
@@ -140,6 +123,7 @@
     </form>
 </section>
 
+<!-- Contact Section -->
 <section id="contact">
     <h2>Contact Us</h2>
     <p>📞 Phone: 0557910719</p>
@@ -152,17 +136,44 @@
 </footer>
 
 <script>
-    // Accordion functionality for services
+    // Show sections on click
+    const servicesSection = document.getElementById('services');
+    const bookSection = document.getElementById('option2');
+    const contactSection = document.getElementById('contact');
+
+    document.getElementById('showServices').addEventListener('click', (e) => {
+        e.preventDefault();
+        servicesSection.style.display = 'block';
+        bookSection.style.display = 'none';
+        contactSection.style.display = 'none';
+        window.scrollTo({ top: servicesSection.offsetTop - 50, behavior: 'smooth' });
+    });
+
+    document.getElementById('showBook').addEventListener('click', (e) => {
+        e.preventDefault();
+        servicesSection.style.display = 'none';
+        bookSection.style.display = 'block';
+        contactSection.style.display = 'none';
+        window.scrollTo({ top: bookSection.offsetTop - 50, behavior: 'smooth' });
+    });
+
+    document.getElementById('showContact').addEventListener('click', (e) => {
+        e.preventDefault();
+        servicesSection.style.display = 'none';
+        bookSection.style.display = 'none';
+        contactSection.style.display = 'block';
+        window.scrollTo({ top: contactSection.offsetTop - 50, behavior: 'smooth' });
+    });
+
+    // Accordion behavior for services
     const cards = document.querySelectorAll('.service-card');
     cards.forEach(card => {
         card.addEventListener('click', () => {
-            card.classList.toggle('active');
-            const p = card.querySelector('p');
-            if (p.style.display === "block") {
-                p.style.display = "none";
-            } else {
-                p.style.display = "block";
-            }
+            // Remove active from all
+            cards.forEach(c => { c.classList.remove('active'); c.querySelector('p').style.display = 'none'; });
+            // Activate clicked card
+            card.classList.add('active');
+            card.querySelector('p').style.display = 'block';
         });
     });
 </script>
