@@ -1,149 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MASTER CLEAN Services | Community 25, Tema</title>
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  
-  <style>
-    /* General Styles */
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f5f5;
-      color: #333;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master Clean Cleaning Services</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; background: #f4f4f4; color: #333; }
+
+    /* Header with background */
     header {
-      background: #2b7a78;
-      color: white;
-      padding: 20px;
-      text-align: center;
+        background: url('https://images.unsplash.com/photo-1581574207115-3f0b4f8c3d6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2xlYW5lcjJ8fHx8fHwxNjg3Mjg0MjE3&ixlib=rb-4.0.3&q=80&w=1080') center/cover no-repeat;
+        color: white;
+        padding: 100px 20px;
+        text-align: center;
+        position: relative;
+        animation: slideDown 1s ease-out;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
+    /* Dark overlay for readability */
+    header::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
     }
-    nav {
-      margin-top: 10px;
-    }
+    header h1, header p { position: relative; z-index: 1; }
+
+    nav { display: flex; justify-content: center; gap: 20px; margin: 15px 0; }
     nav a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: 600;
+        text-decoration: none;
+        color: #333;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
     }
+    nav a:hover { background: #4CAF50; color: white; transform: scale(1.1); }
 
-    /* Services Section */
-    .services {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 40px 10px;
-      gap: 20px;
-    }
-    .service-card {
-      background: white;
-      padding: 20px;
-      width: 250px;
-      text-align: center;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      opacity: 0;
-      transform: translateY(50px);
-      animation: slideUp 0.6s forwards;
-    }
-    .service-card:nth-child(1){animation-delay: 0.1s;}
-    .service-card:nth-child(2){animation-delay: 0.3s;}
-    .service-card:nth-child(3){animation-delay: 0.5s;}
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-    @keyframes slideUp {
-      to { opacity: 1; transform: translateY(0);}
-    }
+    section { padding: 40px 20px; max-width: 1000px; margin: auto; opacity: 0; animation: fadeIn 2s forwards; }
+    section:nth-of-type(1) { animation-delay: 0.3s; }
+    section:nth-of-type(2) { animation-delay: 0.6s; }
+    section:nth-of-type(3) { animation-delay: 0.9s; }
 
-    /* Contact Section */
-    .contact {
-      background: #3aafa9;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
+    .btn {
+        display: inline-block;
+        background: #4CAF50;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.3s, background 0.3s;
+        text-decoration: none;
     }
-    .contact h2 { margin-bottom: 20px; }
-    .contact p { margin: 8px 0; }
-    .contact a {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: #2b7a78;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
+    .btn:hover { background: #45a049; transform: translateY(-3px); }
 
-    /* Map Placeholder */
-    .map {
-      width: 100%;
-      height: 300px;
-      margin: 20px 0;
-      background: #ccc;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #555;
-      font-weight: 600;
-    }
+    footer { text-align: center; padding: 15px; background: #333; color: white; margin-top: 40px; animation: fadeIn 2s forwards; animation-delay: 1.2s; opacity: 0; }
 
-    footer {
-      background: #17252a;
-      color: white;
-      text-align: center;
-      padding: 15px;
-    }
-  </style>
+    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+</style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <h1>MASTER CLEAN Services</h1>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-      <a href="#map">Location</a>
-    </nav>
-  </header>
+<header>
+    <h1>Master Clean Cleaning Services</h1>
+    <p>Best Cleaning Services in Accra & Tema, Ghana</p>
+</header>
 
-  <!-- Services Section -->
-  <section id="services" class="services">
-    <div class="service-card">Home Cleaning</div>
-    <div class="service-card">Office Cleaning</div>
-    <div class="service-card">Laundry & Ironing</div>
-  </section>
+<nav>
+    <a href="#services">Services</a>
+    <a href="#option2">Option 2</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-  <!-- Map Placeholder -->
-  <div id="map" class="map">
-    Community 25, Tema Map
-  </div>
+<section id="services">
+    <h2>Our Services</h2>
+    <ul>
+        <li>Home Cleaning</li>
+        <li>Office Cleaning</li>
+        <li>Ready Labour</li>
+        <li>Available Labour</li>
+        <li>After Cleaning Care</li>
+    </ul>
+</section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
+<section id="option2">
+    <h2>Option 2 - Booking & Online Requests</h2>
+    <p>Use this section to book services or request special cleaning tasks online.</p>
+    <a href="mailto:info@masterclean.com" class="btn">Request Service</a>
+</section>
+
+<section id="contact">
     <h2>Contact Us</h2>
-    <p>Phone: +233 55 791 0719</p>
-    <p>Email: info@masterclean.com</p>
-    <a href="https://wa.me/233557910719" target="_blank">Book via WhatsApp</a>
-  </section>
+    <p>📞 Phone: 0557910719</p>
+    <p>📍 Location: Accra & Tema, Ghana</p>
+    <a href="https://wa.me/233557910719" class="btn">Chat on WhatsApp</a>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2026 MASTER CLEAN Services
-  </footer>
+<footer>
+    <p>&copy; 2026 Master Clean Cleaning Services. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
